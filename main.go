@@ -15,6 +15,7 @@ func main() {
 	// use viper to read config
 
 	viper.SetDefault("debug", true)
+	viper.SetDefault("database", ":6379")
 	viper.SetDefault("port", "8080")
 	viper.SetDefault("title", "title default")
 	viper.SetDefault("choices", [2]string{"First", "Second"})
@@ -28,6 +29,7 @@ func main() {
 	}
 
 	debug := viper.GetBool("debug")
+	database := viper.GetString("database")
 	port := viper.GetString("port")
 	title := viper.GetString("title")
 	choices := viper.GetStringSlice("choices")
@@ -47,7 +49,7 @@ func main() {
 	// set connection to redis db
 
 	pool := redis.NewPool(func() (redis.Conn, error) {
-		c, err := redis.Dial("tcp", ":6379")
+		c, err := redis.Dial("tcp", database)
 		
 		if err != nil {
 			return nil, err

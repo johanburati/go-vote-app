@@ -2,4 +2,5 @@ TITLE = 'Go Voting App'
 PORT = '8080'
 CHOICES = [ 'Cats', 'Dogs', '犬', '猫']
 SHOWHOST = 'true'
+DATABASE = 'localhost:6379'
 #DEBUG = 'false'
