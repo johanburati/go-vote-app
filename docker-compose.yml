@@ -1,0 +1,9 @@
+backend:
+  image: redis:alpine
+
+frontend:
+  build: .
+  ports:
+     - "8080:8080/tcp"
+  links:
+    - backend
