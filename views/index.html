@@ -5,21 +5,23 @@
 		<div class="col mt-3">
 			<h3 class="block-center">{{ .title }}</h3>
 		</div>
+		<hr>
 		{{range $k, $v := .votes}}
 			<div class="col mt-3">
-				<button name="vote" value="{{ $k }}" onclick="send()" class="btn btn-primary btn-block">{{ $k }}</button>
+				<button name="vote" value="{{ $k }}" onclick="send()" class="btn btn-outline-primary btn-block">{{ $k }}</button>
 			</div>
 		{{end}}
 		<div class="col mt-3">
-			<button name="vote" value="reset" onclick="send()" class="btn btn-danger btn-block">Reset</button>
+			<button name="vote" value="reset" onclick="send()" class="btn btn-outline-danger btn-block">Reset</button>
 		</div>
-		<div class="col mt-3">
+		<div class="alert alert-info mt-3" role="alert">
 			- 
 			{{range $k, $v := .votes}}
 				{{ $k }}: {{ $v }} -
 			{{ end }}
 		</div>
 	</form>
+		<hr>
 </div>		 
 
 {{ template "footer.html" .}}
