@@ -123,7 +123,7 @@ func main() {
 			if err != nil {
 					fmt.Errorf("[REDIS-error] %s\n", err)
 			} else {
-					fmt.Printf("[REDIS-debug] %s=%i\n", vote, ret)
+					fmt.Printf("[REDIS-debug] %s=%d\n", vote, ret)
 			}
 
 		}
