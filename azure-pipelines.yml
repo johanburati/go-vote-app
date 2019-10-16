@@ -6,6 +6,7 @@ pool:
 
 variables:
   imageName: 'go-vote-app:$(build.buildId)'
+  dockerHub: 'dockerHub'
  
 steps:
 - script: docker build -f Dockerfile -t $(imageName) .
