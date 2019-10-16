@@ -14,9 +14,7 @@ steps:
   displayName: Build services
   inputs:
     action: Build services
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
     dockerComposeFile: docker-compose.yml
     projectName: $(Build.Repository.Name)
-    qualifyImageNames: true
-    additionalImageTags: $(Build.BuildId)
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'DockerHub'
