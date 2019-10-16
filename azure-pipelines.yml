@@ -5,7 +5,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: 'go-vote-app:(build.buildId)'
+  imageName: 'go-vote-app:$(build.buildId)'
  
 steps:
 - script: docker build -f Dockerfile -t $(ImageName) .
