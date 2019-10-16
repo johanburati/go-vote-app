@@ -10,12 +10,6 @@ variables:
   azureSubscriptionEndpoint: 'go-vote-app'
 
 steps:
-- task: Docker@1
-  displayName: Build an image
-  inputs:
-    repository: $(imageName)
-    command: build
-    Dockerfile: Dockerfile
 - task: DockerCompose@1
   displayName: Build services
   inputs:
