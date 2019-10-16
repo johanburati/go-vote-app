@@ -8,5 +8,5 @@ variables:
   imageName: 'go-vote-app:$(build.buildId)'
  
 steps:
-- script: docker build --no-color -f Dockerfile -t $(ImageName) .
+- script: docker build -f Dockerfile -t $(ImageName) .
   displayName: 'docker build'
