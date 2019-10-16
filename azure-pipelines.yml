@@ -2,19 +2,11 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Ubuntu-latest'
+  vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: 'go-vote-app'
-  azureContainerRegistry: 'go-vote-app'
-  azureSubscriptionEndpoint: 'go-vote-app'
-
+  imageName: 'go-vote-app:(build.buildId)'
+ 
 steps:
-- task: DockerCompose@0
-  displayName: Build services
-  inputs:
-    action: Build services
-    dockerComposeFile: docker-compose.yml
-    projectName: $(Build.Repository.Name)
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'DockerHub'
+- script: docker build -f Dockerfile -t $(ImageName) .
+  displayName: 'docker build'
